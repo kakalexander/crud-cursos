@@ -7,25 +7,19 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
 
-    public function up(): void
+    public function up(): void 
     {
         Schema::create('matriculas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('aluno_id');
-            $table->unsignedBigInteger('area_curso_id');
+            $table->unique(['aluno_id', 'area_curso_id']);
+            $table->foreignId('aluno_id')->constrained('alunos')->cascadeOnDelete();
+            $table->foreignId('area_curso_id')->constrained('area_cursos')->cascadeOnDelete();
             $table->timestamps();
-            $table->foreign('aluno_id')->references('id')->on('alunos')->onDelete('cascade');
-            $table->foreign('area_curso_id')->references('id')->on('cursos')->onDelete('cascade');
         });
     }
 
-    public function down(): void
+    public function down(): void 
     {
-        Schema::table('matriculas', function (Blueprint $table) {
-            $table->dropForeign(['aluno_id']);
-            $table->dropForeign(['area_curso_id']);
-        });
-
         Schema::dropIfExists('matriculas');
     }
 };

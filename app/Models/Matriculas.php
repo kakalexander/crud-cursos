@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Aluno extends Model
 {
     
-    protected $table = 'matricula';
+    protected $table = 'matriculas';
 
     protected $fillable = [
         'matricula',
         'aluno_id',
-        'areaCurso_id',
+        'area_curso_id',
     ];
 }

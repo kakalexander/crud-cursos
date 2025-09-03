@@ -7,18 +7,17 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
   
-    public function up(): void
+    public function up(): void 
     {
-        Schema::create('area_curso', function (Blueprint $table) {
+        Schema::create('area_cursos', function (Blueprint $table) {
             $table->id();
-            $table->string('titulo'); 
-            $table->text('descricao')->nullable(); 
+            $table->string('titulo');
+            $table->text('descricao')->nullable();
             $table->timestamps();
         });
     }
-
-    public function down(): void
+    public function down(): void 
     {
-        Schema::dropIfExists('area_curso');
+        Schema::dropIfExists('area_cursos');
     }
 };
