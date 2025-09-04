@@ -4,16 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class curso extends Model
+class AreaCursos extends Model
 {
     protected $table = 'area_cursos';
 
     protected $fillable = [
         'titulo',
-        'descrição',
+        'descricao',
     ];
 
     protected $casts = [
-        'data_de_nascimento' => 'date',
+        'data_nascimento' => 'date',
     ];
 }
